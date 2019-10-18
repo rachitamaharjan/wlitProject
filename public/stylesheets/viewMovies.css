@@ -1,0 +1,81 @@
+body {
+    /*   https://www.readersdigest.ca/wp-content/uploads/sites/14/2012/09/movies-made-great-white-north.jpg
+      
+      https://image.freepik.com/free-photo/view-from-stairs-rows-comfortable-chairs-theater-cinema_116124-235.jpg*/
+     background-image: url("https://www.readersdigest.ca/wp-content/uploads/sites/14/2012/09/movies-made-great-white-north.jpg");
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     font-family : Comfortaa;
+     font-weight: 900;
+     background-position: center;
+     background-size: cover;
+     color : white;
+    
+    }
+    
+    
+    
+    label{
+        display :  block;
+        padding : 1rem 0 .25rem;
+        font-size: 17px ;
+    }
+    
+    ol{
+      position : relative;
+      width : 450px;
+    /*   margin : 100px auto 0; */
+      padding : 10px;
+      box-sizing : border-box;
+      padding-left: 10px;
+      list-style-position: inside;
+    }
+    
+    ol li{
+    /*   display : flex; */
+    /*   display : block; */
+        width : 100%;
+        padding : .5rem;
+        font-size : 18px;
+        font-family : Comfortaa;
+        border : 1px solid ;
+      /*   background-color : #FF7933; */
+        background-color: rgba(23,56,99,0.5);
+        opacity: 0.9;
+        margin : 8px 0;
+        transition : .5s;
+        border-radius : 5px;
+      
+    }
+    ol li:hover{
+      transform:scale(1.06);
+      background: #260455 /*purple*/
+    }
+    input, textarea{
+        display : inline-block;
+        width : 100%;
+        padding : .5rem;
+        font-size : 18px;
+        font-family : Comfortaa;
+        border-radius : 5px;
+    }
+    
+    #sendBtn{
+      display : block;
+      font-size : 18px;
+      font-family : Comfortaa;
+      border-radius : 5px;
+      border : 1;
+      background : #260455;
+      padding : .5rem;
+      color : white;
+      margin : 1rem 0;
+      width : auto;
+    /*   text-transform : uppercase; */
+      cursor : pointer;
+      float: right;
+    }
+      #sendBtn:hover{
+        background : #3375FF;
+      }
+    

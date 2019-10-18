@@ -10,7 +10,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose connect('mongodb://localhost/wlitProject')//connects mongoose with app.js
+mongoose.connect('mongodb://localhost/wlitProject')//connects mongoose with app.js
+.then(() => {
+  console.log('here.......') //to check whether it connected, go to terminal and see if here.... is there
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

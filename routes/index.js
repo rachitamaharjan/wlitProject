@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Movies = require('../models/movies')
 var data = {
   // "movies": [
     // {
@@ -30,9 +31,16 @@ var data = {
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'WLIT' , name:{fellow:"Rachita"}});
 });
+// router.get('/movies', function(req, res, next) {
+//   res.render('movies', data); //res is response
+// });
 
 router.get('/movies', function(req, res, next) {
-  res.render('movies', data); //res is response
+  // res.render('movies', data); //res is response
+  console.log('movies...........',req,res);
+  Movies.find().exec((err,movies) => {
+    return movies;
+  })
 });
 
 module.exports = router;
