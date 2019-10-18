@@ -45,11 +45,22 @@ router.get('/movies', function(req, res, next) {
 });
 
 router.get('/movie/add', function(req, res, next) {
-  // res.render('movies', data); //res is response
-  // console.log('movies...........',req,res);
-  // Movies.find().exec((err,movies) => {
-    // console.log('movies...........',movies);
     res.render('addMovie'); //sends 'movies' data to 'viewMovies' view
+});
+
+router.post('/addmovie', function(req, res, next) {
+  console.log(req.body) //shows value in terminal
+  var movie = new Movies({ //from top of the page, i. e variable name of model
+    name : req.body.name,
+    description : req.body.description,
+    cast : req.body.cast,
+    genre: req.body.genre
+  }) 
+  var promise = movie.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((movie) => {//if you use normal promise
+    console.log('movie saved', movie)
+  })
 });
 
 module.exports = router;

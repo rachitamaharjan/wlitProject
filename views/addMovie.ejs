@@ -1,25 +1,24 @@
 
-<form class = "movie-form">
-    <h1>Add Movie / Series</h1>
+<form class = "movie-form" method = "post" action = "/addmovie">
     <label for = "movie-name">
       Movie Name
     </label>
-    <input type = "text" id = "movie-name">
-    
+    <input type = "text" id = "movie-name" name = "name">
+   
     <label for = "movie-genre">
       Genre
     </label>
-    <input type = "text" id = "movie-genre">
+    <input type = "text" id = "movie-genre" name = "genre">
     
     <label for = "movie-cast">
       Casts
     </label>
-    <input type = "text" id = "movie-cast">
+    <input type = "text" id = "movie-cast" name = "cast">
     
      <label for = "movie-desc">
       Description
     </label>
-    <textarea id = "movie-desc"></textarea>
+    <textarea id = "movie-desc"></textarea name = "description">
     
     <input type = "submit" values = "Submit" id = "sendBtn">
   </form>
