@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/wlitProject')//connects mongoose with app.
 })
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); //path join makes it possible to access views directly by their names
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));

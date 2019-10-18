@@ -37,11 +37,24 @@ router.get('/', function(req, res, next) {
 
 router.get('/movies', function(req, res, next) {
   // res.render('movies', data); //res is response
-  console.log('movies...........',req,res);
+  // console.log('movies...........',req,res);
   Movies.find().exec((err,movies) => {
-    return movies;
+    console.log('movies...........',movies);
+    res.render('viewMovies',{movies}); //sends 'movies' data to 'viewMovies' view
   })
+});
+
+router.get('/movie/add', function(req, res, next) {
+  // res.render('movies', data); //res is response
+  // console.log('movies...........',req,res);
+  // Movies.find().exec((err,movies) => {
+    // console.log('movies...........',movies);
+    res.render('addMovie'); //sends 'movies' data to 'viewMovies' view
 });
 
 module.exports = router;
 
+// router.get('/one',function(req,res,next)
+// {
+//   Movies
+// })
