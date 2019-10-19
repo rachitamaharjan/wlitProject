@@ -1,17 +1,17 @@
 
 <h1>Movies and Series</h1>
 <ol>
-  
     <% console.log(movies+"blah") %>
     <% movies.forEach(function(movie){ %>
         <label for = "movie-name">  
-            <li>
-                <%= movie.name %>
-              
-            </li>   
+            <a href = '/movie'>
+                <li>
+                    <%= movie.name %> 
+                </li>  
+            </a>
         </label>
-    
     <% }) %>
+    
     
   
 

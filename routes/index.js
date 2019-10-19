@@ -60,8 +60,14 @@ router.post('/addmovie', function(req, res, next) {
   //await promise //if you use async function
   promise.then((movie) => {//if you use normal promise
     console.log('movie saved', movie)
+    res.redirect('/movies')
   })
 });
+
+router.get('/movie/:movieId', function(req, res, next) {
+  res.render('viewOne',movieId); //sends 'movies' data to 'viewMovies' view
+});
+
 
 module.exports = router;
 
