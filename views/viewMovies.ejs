@@ -1,19 +1,17 @@
 
 <h1>Movies and Series</h1>
 <ol>
-    <% console.log(movies+"blah") %>
-    <% movies.forEach(function(movie){ %>
+    <!-- <% console.log(movies[0]._id+"blah") %> -->
+    <% movies.forEach(function(movie) {%>
         <label for = "movie-name">  
-            <a href = '/movie'>
+            <a href = '/movie/<%= movie._id %>'>
                 <li>
-                    <%= movie.name %> 
+                   <%= movie.name %> 
                 </li>  
             </a>
         </label>
     <% }) %>
     
-    
-  
 
   <li>
     <label for = "movie-genre">

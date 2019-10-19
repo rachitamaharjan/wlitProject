@@ -44,13 +44,14 @@ router.get('/movies', function(req, res, next) {
   })
 });
 
-router.get('/movie/add', function(req, res, next) {
+router.get('/movie/add', function(req, res, next) { 
     res.render('addMovie'); //sends 'movies' data to 'viewMovies' view
 });
 
-router.post('/addmovie', function(req, res, next) {
+//for saving new added values
+router.post('/addmovie', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
-  var movie = new Movies({ //from top of the page, i. e variable name of model
+  var movie = new Movies({ //from top of the page, i. e variable name of model //new object instantiated
     name : req.body.name,
     description : req.body.description,
     cast : req.body.cast,
@@ -64,9 +65,72 @@ router.post('/addmovie', function(req, res, next) {
   })
 });
 
+//for each movie
 router.get('/movie/:movieId', function(req, res, next) {
-  res.render('viewOne',movieId); //sends 'movies' data to 'viewMovies' view
+  // var movieId = req.params.id;
+  // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+  //   console.log('moviesssssss', movie)
+  // }
+  //console.log(req.paramsmovieId)
+  
+  Movies.findOne({ _id : req.params.movieId}, function(err, onemovie){
+    // var movie = item => item._id === movieId
+    res.render('viewOne',{movie:onemovie}); //sends 'movies' data to 'viewOne' view
+  })
+  // Movies.findOne({///using promise
+  //   _id : req.params.movieId
+  // }).then(movie=>console.log(movie)).catch(err=> console.log(err))
+
+
+
+  // Movies.find().exec((err,movies) => { //fat arrow function used. Here as an alternative to .exec() function, callback can be used) 
+  //   var movieId = movies._id;
+  //   console.log("movieees" + movies)
+  //   console.log("this is the id" + movieId)
+  //   var movie = movies.findIndex(item => item.id === movieId)
+  //   console.log('this is a movie...........',movie);
+  //   res.render('viewOne',{movie}); //sends 'movies' data to 'viewOne' view
+  // })
+   //sends 'movies' data to 'viewMovies' view
 });
+
+// router.delete('/delete/:movieId', function(req, res, next) { 
+//   res.render('addMovie'); //sends 'movies' data to 'viewMovies' view
+// });
+
+router.get('/edit/:movieId', function(req, res, next){
+  Movies.findOne({ _id : req.params.movieId}, function(err, onemovie){
+   // console.log(movieId + 'heyyyy')
+    // var movie = item => item._id === movieId
+    res.render('editMovie',{movie:onemovie}); 
+    // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+  })
+})
+
+//for saving edited movies
+
+router.post('/editsendmovie/:movieId', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  Movies.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
+   // console.log(movieId+"this is iddddd")
+    res.redirect("/movies")
+  })
+});
+
+
+router.get('/remove/:movieId', function(req, res, next){
+  Movies.deleteOne({ _id : req.params.movieId}, function(err, onemovie){
+   // console.log(movieId + 'heyyyy')
+    // var movie = item => item._id === movieId
+   res.redirect("/movies")
+    // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+  })
+})
+
+//   var movie = item => item.id === movieId
+//   res.send('deleted')
+// });
+
 
 
 module.exports = router;
@@ -74,4 +138,3 @@ module.exports = router;
 // router.get('/one',function(req,res,next)
 // {
 //   Movies
-// })

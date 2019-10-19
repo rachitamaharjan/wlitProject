@@ -5,12 +5,18 @@
          
             
      
-           
+    
     <div class = "eachmovie">
-      <h2><label for = "each-movie-name">Name: Sherlock</br></h2>
-      </label><h3><label for = "each-movie-cast">Cast: Benedict Cumberbatch, Martin Freeman  </label></br>
-      <label for = "each-movie-genre">Genre: Crime </label></br>
-      <label for = "each-movie-desc">Description: Sherlock is a British crime drama television series based on Sir Arthur Conan Doyle's Sherlock Holmes detective stories. </label></br></h3>
+      <h2><label for = "each-movie-name">Name: <%= movie.name %> </br></h2>
+      </label><h3><label for = "each-movie-cast">Cast: <%= movie.cast %>   </label></br>
+      <label for = "each-movie-genre">Genre: <%= movie.genre %>  </label></br>
+      <label for = "each-movie-desc">Description: <%= movie.description %>  </label></br></h3>
+      <!-- <%= console.log(movie.id + "heyyyy") %> -->
+      <!-- <form action = '/remove/<%= movie._id %>' method = "post">
+        <button id = "edit"> Edit</button> -->
+        <a  href = "/edit/<%= movie._id %>"id = "Edit">Edit</br>
+        <a  href = "/remove/<%= movie._id %>"id = "Delete">Delete</as>
+    <!-- </form> -->
      </div>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/viewOne.css" />

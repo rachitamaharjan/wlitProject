@@ -1,0 +1,28 @@
+
+<form class = "movie-form" method = "post" action = "/editsendmovie/<%= movie._id %>">
+    <input type = "hidden" name = "_id" value = "<%= movie._id %>"></input>
+    <label for = "movie-name">
+      Movie Name
+    </label>
+    <input type = "text" id = "movie-name" name = "name" value = "<%= movie.name %>">
+   
+    <label for = "movie-genre">
+      Genre
+    </label>    
+    <input type = "text" id = "movie-genre" name = "genre" value = "<%= movie.genre %>">
+    
+    <label for = "movie-cast">
+      Casts
+    </label>
+    <input type = "text" id = "movie-cast" name = "cast" value = "<%= movie.cast %>">
+    
+     <label for = "movie-desc">
+      Description
+    </label>
+    <textarea id = "movie-desc"></textarea name = "description" value = "<%= movie.description %>">
+    
+    <input type = "submit" values = "Submit" id = "sendBtn">
+  </form>
+  
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/addMovie.css" />
